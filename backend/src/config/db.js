@@ -1,0 +1,42 @@
+require('dotenv').config();
+const sqlite3 = require('sqlite3').verbose();
+const fs = require('fs');
+const path = require('path');
+const dbFile = process.env.DATABASE_URL.replace('sqlite://', '');
+const db = new sqlite3.Database(dbFile);
+
+// Schema dosyasını otomatik çalıştır
+const schemaPath = path.join(__dirname, '../../sql/schema.sql');
+const schemaSql = fs.readFileSync(schemaPath, 'utf8');
+db.exec(schemaSql, (err) => {
+	if (err) console.error('Schema creation error:', err);
+});
+
+// Uygulama kapanınca veritabanı dosyasını sil
+process.on('exit', () => {
+	if (fs.existsSync(dbFile)) {
+		fs.unlinkSync(dbFile);
+		console.log('SQLite database file deleted:', dbFile);
+	}
+});
+process.on('SIGINT', () => {
+	process.exit();
+});
+
+function query(sql, params = []) {
+	return new Promise((resolve, reject) => {
+		const isSelect = /^\s*select/i.test(sql);
+		if (isSelect) {
+			db.all(sql, params, (err, rows) => {
+				if (err) return reject(err);
+				resolve({ rows });
+			});
+		} else {
+			db.run(sql, params, function (err) {
+				if (err) return reject(err);
+				resolve({ lastID: this.lastID, changes: this.changes });
+			});
+		}
+	});
+}
+module.exports = { query, db };

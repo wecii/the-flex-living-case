@@ -1,0 +1,95 @@
+.review-list-page {
+  max-width: 900px;
+  margin: 32px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 32px;
+}
+
+.review-list-page h2 {
+  margin-bottom: 24px;
+  font-size: 2rem;
+  color: #222;
+}
+
+.review-filter-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.review-filter-form input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.review-filter-form button {
+  padding: 8px 18px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.review-filter-form button:hover {
+  background: #0056b3;
+}
+
+.review-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+.review-table th, .review-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.review-table th {
+  background: #f7f7f7;
+  font-weight: 600;
+}
+.review-table tr:hover {
+  background: #f0f8ff;
+}
+.approve-btn {
+  padding: 6px 14px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.approve-btn:hover {
+  background: #218838;
+}
+.approved-label {
+  color: #888;
+  font-size: 1.1rem;
+}
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.status-pending {
+  background: #fff3cd;
+  color: #856404;
+}
+.status-approved {
+  background: #d4edda;
+  color: #155724;
+}
+.loading {
+  margin: 32px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #007bff;
+}
