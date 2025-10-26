@@ -12,17 +12,6 @@ db.exec(schemaSql, (err) => {
 	if (err) console.error('Schema creation error:', err);
 });
 
-// Uygulama kapanınca veritabanı dosyasını sil
-process.on('exit', () => {
-	if (fs.existsSync(dbFile)) {
-		fs.unlinkSync(dbFile);
-		console.log('SQLite database file deleted:', dbFile);
-	}
-});
-process.on('SIGINT', () => {
-	process.exit();
-});
-
 function query(sql, params = []) {
 	return new Promise((resolve, reject) => {
 		const isSelect = /^\s*select/i.test(sql);
