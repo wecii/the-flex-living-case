@@ -2,8 +2,7 @@ require('dotenv').config();
 const sqlite3 = require('sqlite3').verbose();
 const fs = require('fs');
 const path = require('path');
-const dbFile = process.env.DATABASE_URL.replace('sqlite://', '');
-const db = new sqlite3.Database(dbFile);
+const db = new sqlite3.Database(':memory:');
 
 // Schema dosyasını otomatik çalıştır
 const schemaPath = path.join(__dirname, '../../sql/schema.sql');
