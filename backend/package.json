@@ -17,7 +17,6 @@
     "axios": "^1.12.2",
     "dotenv": "^16.4.1",
     "fastify": "^4.26.2",
-    "psql": "^0.0.1",
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {
