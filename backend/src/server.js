@@ -2,8 +2,11 @@ const buildApp = require('./app');
 const app = buildApp();
 
 if (process.env.VERCEL === '1' || process.env.VERCEL === 'true') {
-  // Vercel: export the app for serverless
-  module.exports = app;
+  // Vercel: export serverless function
+  module.exports = async function handler(req, res) {
+    await app.ready();
+    app.server.emit('request', req, res);
+  };
 } else {
   // Local: listen on port
   const PORT = process.env.PORT || 3000;

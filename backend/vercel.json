@@ -8,13 +8,14 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/(.*)",
       "dest": "/src/server.js"
     }
   ],
   "env": {
     "NODE_ENV": "production"
   },
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "framework": "fastify",
   "public": false,
   "github": {
