@@ -15,7 +15,7 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "framework": null,
+  "framework": "fastify",
   "public": false,
   "github": {
     "enabled": true,
