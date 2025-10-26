@@ -11,7 +11,7 @@ function ReviewDetail() {
   useEffect(() => {
     async function fetchReview() {
       setLoading(true);
-      const res = await fetch(`http://localhost:3000/api/reviews/${id}`);
+  const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/reviews/${id}`);
       const data = await res.json();
       setReview(data.data);
       setLoading(false);
@@ -79,9 +79,9 @@ function ReviewDetail() {
         <div className={`review-status-badge status-${review.review_status}`}>Status: {review.review_status}</div>
         {review.review_status === 'pending' && (
           <button style={{ marginTop: 16, padding: '8px 12px', backgroundColor: '#4CAF50', color: 'white', border: 'none', cursor: 'pointer', marginLeft: 15 }} onClick={async () => {
-            await fetch(`http://localhost:3000/api/reviews/${id}/approve`, { method: 'POST' });
+            await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/reviews/${id}/approve`, { method: 'POST' });
             setLoading(true);
-            const res = await fetch(`http://localhost:3000/api/reviews/${id}`);
+              const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/reviews/${id}`);
             const data = await res.json();
             setReview(data.data || data);
             setLoading(false);

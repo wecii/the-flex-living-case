@@ -18,7 +18,7 @@ function ReviewList() {
     });
     params.append('page', newPage);
     params.append('pageSize', newPageSize);
-    const res = await fetch(`http://localhost:3000/api/reviews?${params.toString()}`);
+  const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/reviews?${params.toString()}`);
     const data = await res.json();
     setReviews(data.items || []);
     setTotal(data.total || 0);

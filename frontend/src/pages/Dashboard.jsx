@@ -9,13 +9,13 @@ function Dashboard() {
   }, []);
 
   const fetchInsights = async () => {
-    const res = await fetch('http://localhost:3000/api/dashboard/stats');
+  const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/dashboard/stats`);
     const data = await res.json();
     setInsights(data);
   };
 
   const integrateHostawayData = async () => {
-    const res = await fetch('http://localhost:3000/api/integration/hostaway');
+  const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/integration/hostaway`);
     const data = await res.json();
     if(data.imported > 0) {
       alert(`${data.imported} new reviews imported.`);
