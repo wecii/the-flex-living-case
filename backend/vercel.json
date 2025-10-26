@@ -15,7 +15,6 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "framework": "fastify",
   "public": false,
   "github": {
