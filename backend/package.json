@@ -1,11 +1,11 @@
 {
   "name": "flex-reviews-backend",
   "version": "1.0.0",
-  "main": "src/server.js",
+  "main": "api/index.js",
   "type": "commonjs",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js",
     "db:init": "psql -d flex -f sql/schema.sql",
     "db:seed": "psql -d flex -f sql/seed.sql"
   },
