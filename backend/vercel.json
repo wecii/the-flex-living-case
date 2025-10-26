@@ -17,7 +17,6 @@
   },
   "framework": null,
   "public": false,
-  "regions": ["fra1", "iad1", "sfo1"],
   "github": {
     "enabled": true,
     "silent": false
